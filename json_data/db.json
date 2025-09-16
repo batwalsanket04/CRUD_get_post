@@ -1,0 +1,22 @@
+{
+  "User": [
+    {
+      "email": "vardhaman@gmail.com",
+      "password": "2345678",
+      "remember": true,
+      "id": 1
+    },
+    {
+      "email": "mayurborse@gmail.com",
+      "password": "1234567",
+      "remember": true,
+      "id": 2
+    },
+    {
+      "email": "om@gmail",
+      "password": "1234567",
+      "remember": true,
+      "id": 3
+    }
+  ]
+}
