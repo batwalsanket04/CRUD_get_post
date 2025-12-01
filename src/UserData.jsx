@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 const UserData = () => {
     const [data,setData]=useState([])
@@ -7,11 +8,23 @@ const UserData = () => {
     const fetchdata=async()=>
     {
       
-        const result=await axios.get('http://localhost:3000/User')
+        const result=await axios.get(`http://localhost:3000/User`)
         console.log(result.data)
         setData(result.data);
 
     }
+
+    const handleDelete=async(id)=>{
+ 
+    try {
+      const result= await axios.delete(`http://localhost:3000/User/${id}`)
+      console.log(result.data)
+      setData(prevdata=>prevdata.filter(val=>val.id!==id))
+    } catch (error) {
+    console.log(" Delete Error",error)
+      
+    }
+      }
 
     useEffect(()=>
     {
@@ -26,10 +39,8 @@ const UserData = () => {
             <tr>
                  <th>Id</th>
                 <th>userEmail</th>
-                <th>userPassword</th>               
-                
-
-
+                <th>userPassword</th>  
+                <th>action</th>
             </tr>
         </thead>
         <tbody className='text-center'>
@@ -39,10 +50,26 @@ const UserData = () => {
                     <td>{val.id}</td>
                     <td>{val.email}</td>
                     <td>{val.password}</td>
-                    <td>{val.remember}</td>
+                   
+                    <td>
                     
-                
+              <NavLink to={`/edituser/${val.id}`}
+                className="btn btn-warning btn-sm me-2"
+               
+              >
+                Edit
+              </NavLink>
+
+              <button
+                className="btn btn-danger btn-sm"
+                onClick={() => handleDelete(val.id)}
+              >
+                Delete
+              </button>
+                    </td>
+                    
                 </tr>
+             
 
                )
             })
