@@ -4,6 +4,7 @@ import './App.css'
 import Navbar from './Navbar'
 import LoginForm from './LoginForm'
 import UserData from './UserData'
+import EditUser from './EditUser'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,6 +16,9 @@ function App() {
       <Routes>
         <Route path='/' element={<LoginForm/>}/>
         <Route path='/userdata' element={<UserData/>}/>
+        <Route path='/edituser/:id' element={<EditUser/>}/>
+
+
 
 
       </Routes>
