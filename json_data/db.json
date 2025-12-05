@@ -11,6 +11,12 @@
       "password": "1234567",
       "remember": true,
       "id": 3
+    },
+    {
+      "email": "aniketjagtap@gmail.com",
+      "password": "1234567890",
+      "remember": false,
+      "id": 4
     }
   ]
 }
